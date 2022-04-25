@@ -3,8 +3,10 @@ function App() {
   return (
     <>
     <section className="conventer">
-        <h1>PRZELICZNIK WALUT</h1>
-        <p>Prosty przelicznik walut</p>
+        <header>
+            <h1>PRZELICZNIK WALUT</h1>
+            <p>Prosty przelicznik walut</p>
+        </header>
         <form className="js-form">
             <div className="currency">
                 <label for="iHave" className="currency__label">Mam</label>

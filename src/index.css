@@ -27,8 +27,24 @@ input, select {
     text-align: center;
 }
 
+@media (max-width: 800px) {
+    html {
+        height: auto;
+    }
+
+    .pageTemplate {
+        height: 800px;
+    }
+}
+
 .rootApp {
-    width: 60%;
+    width: 50%;
+}
+
+@media (max-width: 1200px) {
+    .rootApp {
+        width: 70%;
+    }
 }
 
 .conventer {
