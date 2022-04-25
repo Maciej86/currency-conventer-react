@@ -1,13 +1,92 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+    height: 100%;
+    box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+input, select {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 16px;
+    color: rgb(69,69,69);
+}
+
+.pageTemplate {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../public/background.webp') center no-repeat;
+    background-size: cover;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 18px;
+    color: rgb(29,29,29);
+    text-align: center;
+}
+
+.rootApp {
+    width: 60%;
+}
+
+.conventer {
+    margin: 0 15px;
+    padding: 20px;
+    background: rgb(255,255,255);
+    border: 1px solid rgb(230,230,230);
+    border-radius: 7px;
+    box-shadow: 0 0 15px rgb(69,69,69);
+}
+
+.siteTitle {
+    text-shadow: 0 0 5px rgb(150,150,150);
+}
+
+.currency {
+    margin-bottom: 20px;
+}
+
+.currency__label {
+    display: inline-block;
+    width: 80px;
+}
+
+.currency__control {
+    margin: 10px 5px;
+    padding: 7px;
+    background: rgb(255,255,255);
+    border: 1px solid rgb(204,207,211);
+    border-radius: 5px;
+}
+
+.currency__control:focus {
+    outline: none;
+    border: 1px solid rgb(52,152,219);
+}
+
+.currency__control:focus:read-only {
+    border: 1px solid rgb(158,160,163);
+}
+
+.currency__control:read-only {
+    background: rgb(250,252,254);
+}
+
+.footer {
+    margin: 40px 15px 0 15px;
+    padding: 15px 40px;
+    font-size: 14px;
+    background: rgb(255,255,255);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgb(69,69,69);
+}
+  
+.footer__link {
+    color: rgb(100, 100, 100);
+}
+  
+.footer__link:hover {
+    color: rgb(69,69,69);
 }
