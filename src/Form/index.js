@@ -4,14 +4,22 @@ import "./style.css";
 
 const Form = () => {
     const [currentValue, setCurrentValue] = useState("");
-    const [sourceCurrency, setSourceCurrency] = useState("");
+    const [sourceCurrency, setSourceCurrency] = useState("pln");
     const [targetCurrency, setTargetCurrency] = useState("eur");
 
     const getCurrentValue = ({target}) => setCurrentValue(target.value);
+    const getSourceCurrency = ({target}) => setSourceCurrency(target.value);
     const getTargetCurrency = ({target}) => setTargetCurrency(target.value);
 
-    const targetPrice = currencyBay.find(({nameCurrency}) => nameCurrency === targetCurrency).price;
-    const targetValue = (+currentValue  / targetPrice).toFixed(2);
+    let targetValue = 0.00;
+
+    if(sourceCurrency === "pln") {
+        const priceBay = currencyBay.find(({nameCurrency}) => nameCurrency === targetCurrency).price;
+        targetValue = (+currentValue  / priceBay).toFixed(2);  
+    } else {
+        const priceSell = currencySell.find(({nameCurrency}) => nameCurrency === sourceCurrency).price;
+        targetValue = (+currentValue * priceSell).toFixed(2);
+    }
 
     return (
         <form>
@@ -30,7 +38,7 @@ const Form = () => {
                 />
 
                 <select
-                    onChange={setSourceCurrency}
+                    onChange={getSourceCurrency}
                     defaultValue={"pln"}
                     name="ihave" 
                     className="currency__control" 
