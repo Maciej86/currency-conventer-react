@@ -1,25 +1,35 @@
 import {useState} from "react";
-import {currencySell, currencyBay} from "./dataCurrency"
+import {currencies} from "./dataCurrency"
 import "./style.css"; 
 
 const Form = () => {
     const [currentValue, setCurrentValue] = useState("");
-    const [sourceCurrency, setSourceCurrency] = useState("pln");
-    const [targetCurrency, setTargetCurrency] = useState("eur");
+    const [sourceCurrency, setSourceCurrency] = useState("PLN");
+    const [targetCurrency, setTargetCurrency] = useState("EUR");
 
-    const getCurrentValue = ({target}) => setCurrentValue(target.value);
-    const getSourceCurrency = ({target}) => setSourceCurrency(target.value);
-    const getTargetCurrency = ({target}) => setTargetCurrency(target.value);
+    const onCurrentValue = ({target}) => setCurrentValue(target.value);
+    const onSourceCurrency = ({target}) => setSourceCurrency(target.value);
+    const onTargetCurrency = ({target}) => setTargetCurrency(target.value);
 
-    let targetValue = 0.00;
+    const getTargetValue = () => {
+        if(sourceCurrency === "PLN") {
+            return (+currentValue / currencies[targetCurrency].buy).toFixed(2);  
+        } else {
+            return (+currentValue * currencies[sourceCurrency].buy).toFixed(2);
+        }
+    };
 
-    if(sourceCurrency === "pln") {
-        const priceBay = currencyBay.find(({nameCurrency}) => nameCurrency === targetCurrency).price;
-        targetValue = (+currentValue  / priceBay).toFixed(2);  
-    } else {
-        const priceSell = currencySell.find(({nameCurrency}) => nameCurrency === sourceCurrency).price;
-        targetValue = (+currentValue * priceSell).toFixed(2);
-    }
+    const renderOption = () => {
+        let option = [];
+        for(const currency in currencies) {
+            option = [
+                ...option,
+                {option: <option key={currencies[currency].id} value={currency}>{currencies[currency].label}</option>}
+            ]
+        };
+        return option;
+    };
+    const render = renderOption();
 
     return (
         <form>
@@ -27,7 +37,7 @@ const Form = () => {
                 <label htmlFor="iHave" className="currency__label">Mam</label>
                 <input
                     value={currentValue}
-                    onChange={getCurrentValue}
+                    onChange={onCurrentValue}
                     id="ihave" 
                     type="number" 
                     min="1" 
@@ -38,20 +48,18 @@ const Form = () => {
                 />
 
                 <select
-                    onChange={getSourceCurrency}
+                    onChange={onSourceCurrency}
                     defaultValue={"pln"}
                     name="ihave" 
                     className="currency__control" 
                 >
-                    { currencySell.map(currency => (
-                        <option key={currency.id} value={currency.nameCurrency}>{currency.text}</option>
-                    ))}
+                    {render.map(selectOption => (selectOption.option))}
                 </select>
             </div>
             <div className="currency">
                 <label htmlFor="iWillGet" className="currency__label">Otrzymam</label>
                 <input 
-                    value={targetValue}
+                    value={getTargetValue()}
                     id="iWillGet" 
                     type="text" 
                     className="currency__control" 
@@ -59,14 +67,12 @@ const Form = () => {
                 />
 
                 <select 
-                    onChange={getTargetCurrency}
-                    defaultValue={"eur"}
+                    onChange={onTargetCurrency}
+                    defaultValue={"EUR"}
                     name="iWillGet" 
                     className="currency__control" 
                 >
-                    { currencyBay.map(currency => (
-                        <option key={currency.id} value={currency.nameCurrency}>{currency.text}</option>
-                    ))}
+                    {render.map(selectOption => (selectOption.option))}
                 </select>
             </div>
         </form>
