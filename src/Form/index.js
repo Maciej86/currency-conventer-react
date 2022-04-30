@@ -8,8 +8,8 @@ const Form = () => {
     const [targetCurrency, setTargetCurrency] = useState("EUR");
 
     const onCurrentValue = ({target}) => setCurrentValue(target.value);
-    const onSourceCurrency = ({target}) => setSourceCurrency(target.value);
-    const onTargetCurrency = ({target}) => setTargetCurrency(target.value);
+    const onSourceCurrencyChange = ({target}) => setSourceCurrency(target.value);
+    const onTargetCurrencyChange = ({target}) => setTargetCurrency(target.value);
 
     const getTargetValue = () => {
         if(sourceCurrency === "PLN") {
@@ -48,7 +48,7 @@ const Form = () => {
                 />
 
                 <select
-                    onChange={onSourceCurrency}
+                    onChange={onSourceCurrencyChange}
                     defaultValue={"pln"}
                     name="ihave" 
                     className="currency__control" 
@@ -67,7 +67,7 @@ const Form = () => {
                 />
 
                 <select 
-                    onChange={onTargetCurrency}
+                    onChange={onTargetCurrencyChange}
                     defaultValue={"EUR"}
                     name="iWillGet" 
                     className="currency__control" 
