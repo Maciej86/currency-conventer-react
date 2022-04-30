@@ -14,11 +14,11 @@ const Form = () => {
     const getTargetValue = () => {
         if(sourceCurrency === "PLN") {
             return (+currentValue / currencies[targetCurrency].buy).toFixed(2);  
-        } else {
-            return (+currentValue * currencies[sourceCurrency].buy).toFixed(2);
         }
-    };
 
+        return (+currentValue * currencies[sourceCurrency].sell).toFixed(2);
+    };
+    
     const renderOption = () => {
         let option = [];
         for(const currency in currencies) {
