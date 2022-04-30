@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {currencies} from "./dataCurrency"
+import {currencies} from "./currencies"
 import "./style.css"; 
 
 const Form = () => {
