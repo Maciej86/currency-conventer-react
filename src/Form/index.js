@@ -37,7 +37,7 @@ const Form = () => {
 
                 <select
                     onChange={onSourceCurrencyChange}
-                    defaultValue={"pln"}
+                    defaultValue={"PLN"}
                     name="ihave" 
                     className="currency__control" 
                 >
