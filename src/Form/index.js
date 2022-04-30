@@ -24,7 +24,7 @@ const Form = () => {
         for(const currency in currencies) {
             option = [
                 ...option,
-                {option: <option key={currencies[currency].id} value={currency}>{currencies[currency].label}</option>}
+                {option: <option key={currency} value={currency}>{currencies[currency].label}</option>}
             ]
         };
         return option;
