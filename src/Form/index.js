@@ -18,18 +18,6 @@ const Form = () => {
 
         return (+currentValue * currencies[sourceCurrency].sell).toFixed(2);
     };
-    
-    const renderOption = () => {
-        let option = [];
-        for(const currency in currencies) {
-            option = [
-                ...option,
-                {option: <option key={currency} value={currency}>{currencies[currency].label}</option>}
-            ]
-        };
-        return option;
-    };
-    const render = renderOption();
 
     return (
         <form>
@@ -53,7 +41,9 @@ const Form = () => {
                     name="ihave" 
                     className="currency__control" 
                 >
-                    {render.map(selectOption => (selectOption.option))}
+                    {Object.keys(currencies).map(currency => (
+                        <option key={currency} value={currency}>{currencies[currency].label}</option>
+                    ))}
                 </select>
             </div>
             <div className="currency">
@@ -72,7 +62,9 @@ const Form = () => {
                     name="iWillGet" 
                     className="currency__control" 
                 >
-                    {render.map(selectOption => (selectOption.option))}
+                    {Object.keys(currencies).map(currency => (
+                        <option key={currency} value={currency}>{currencies[currency].label}</option>
+                    ))}
                 </select>
             </div>
         </form>
