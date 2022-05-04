@@ -1,6 +1,6 @@
 import { useState } from "react";
+import Currency from "../Currency";
 import { currencies } from "./currencies";
-import "./style.css";
 
 const Form = () => {
 	const [currentValue, setCurrentValue] = useState("");
@@ -34,58 +34,22 @@ const Form = () => {
 
 	return (
 		<form>
-			<div className="currency">
-				<label htmlFor="iHave" className="currency__label">
-					Mam
-				</label>
-				<input
-					value={currentValue}
-					onChange={onCurrentValue}
-					id="ihave"
-					type="number"
-					min="1"
-					max="10000000"
-					step="0.01"
-					className="currency__control"
-					placeholder="Wpisz kwotę"
-				/>
-
-				<select
-					onChange={onSourceCurrencyChange}
-					value={sourceCurrency}
-					className="currency__control"
-				>
-					{Object.keys(currencies).map((currency) => (
-						<option key={currency} value={currency}>
-							{currencies[currency].label}
-						</option>
-					))}
-				</select>
-			</div>
-			<div className="currency">
-				<label htmlFor="iWillGet" className="currency__label">
-					Otrzymam
-				</label>
-				<input
-					value={getTargetValue().toFixed(2)}
-					id="iWillGet"
-					type="text"
-					className="currency__control"
-					readOnly
-				/>
-
-				<select
-					onChange={onTargetCurrencyChange}
-					value={targetCurrency}
-					className="currency__control"
-				>
-					{Object.keys(currencies).map((currency) => (
-						<option key={currency} value={currency}>
-							{currencies[currency].label}
-						</option>
-					))}
-				</select>
-			</div>
+			<Currency
+				label="Mam"
+				placeholder="Wpisz kwotę"
+				readOnly={false}
+				value={currentValue}
+				onChangeValue={onCurrentValue}
+				onSelectChange={onSourceCurrencyChange}
+				selectValue={sourceCurrency}
+			/>
+			<Currency
+				label="Otrzymam"
+				readOnly={true}
+				value={getTargetValue().toFixed(2)}
+				onSelectChange={onTargetCurrencyChange}
+				selectValue={targetCurrency}
+			/>
 		</form>
 	);
 };
