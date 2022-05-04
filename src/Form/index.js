@@ -5,7 +5,7 @@ import "./style.css";
 const Form = () => {
 	const [currentValue, setCurrentValue] = useState("");
 	const [sourceCurrency, setSourceCurrency] = useState("PLN");
-	const [targetCurrency, setTargetCurrency] = useState("EUR");
+	let [targetCurrency, setTargetCurrency] = useState("EUR");
 
 	const onCurrentValue = ({ target }) => setCurrentValue(target.value);
 	const onSourceCurrencyChange = ({ target }) =>
@@ -41,7 +41,7 @@ const Form = () => {
 
 				<select
 					onChange={onSourceCurrencyChange}
-					defaultValue={"PLN"}
+					value={sourceCurrency}
 					name="ihave"
 					className="currency__control"
 				>
@@ -66,7 +66,7 @@ const Form = () => {
 
 				<select
 					onChange={onTargetCurrencyChange}
-					defaultValue={"EUR"}
+					value={targetCurrency}
 					name="iWillGet"
 					className="currency__control"
 				>
