@@ -11,20 +11,16 @@ const Form = () => {
 
 	const onSourceCurrencyChange = ({ target }) => {
 		setSourceCurrency(target.value);
-		if (target.value !== "PLN") {
-			setTargetCurrency("PLN");
-		} else {
-			setTargetCurrency("EUR");
-		}
+		target.value !== "PLN"
+			? setTargetCurrency("PLN")
+			: setTargetCurrency("EUR");
 	};
 
 	const onTargetCurrencyChange = ({ target }) => {
 		setTargetCurrency(target.value);
-		if (target.value === "PLN") {
-			setSourceCurrency("EUR");
-		} else {
-			setSourceCurrency("PLN");
-		}
+		target.value === "PLN"
+			? setSourceCurrency("EUR")
+			: setSourceCurrency("PLN");
 	};
 
 	const getTargetValue = () => {
