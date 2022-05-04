@@ -5,7 +5,7 @@ import "./style.css";
 const Form = () => {
 	const [currentValue, setCurrentValue] = useState("");
 	const [sourceCurrency, setSourceCurrency] = useState("PLN");
-	let [targetCurrency, setTargetCurrency] = useState("EUR");
+	const [targetCurrency, setTargetCurrency] = useState("EUR");
 
 	const onCurrentValue = ({ target }) => setCurrentValue(target.value);
 	const onSourceCurrencyChange = ({ target }) =>
