@@ -8,12 +8,14 @@ const Form = () => {
 	const [targetCurrency, setTargetCurrency] = useState("EUR");
 
 	const onCurrentValue = ({ target }) => setCurrentValue(target.value);
+
 	const onSourceCurrencyChange = ({ target }) => {
 		if (setSourceCurrency(target.value) !== "PLN") {
 			setTargetCurrency("PLN");
 		}
 		setSourceCurrency(target.value);
 	};
+
 	const onTargetCurrencyChange = ({ target }) => {
 		if (setTargetCurrency(target.value) !== "PLN") {
 			setSourceCurrency("PLN");
@@ -22,13 +24,14 @@ const Form = () => {
 	};
 
 	const getTargetValue = () => {
-		if (sourceCurrency === "PLN") {
-			return +currentValue / currencies[targetCurrency].buy;
-		}
+		const rate =
+			sourceCurrency === "PLN"
+				? 1 / currencies[targetCurrency].buy
+				: currencies[sourceCurrency].sell;
 
-		return +currentValue * currencies[sourceCurrency].sell;
+		return +currentValue * rate;
 	};
-	console.log(targetCurrency);
+
 	return (
 		<form>
 			<div className="currency">
