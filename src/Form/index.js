@@ -53,7 +53,6 @@ const Form = () => {
 				<select
 					onChange={onSourceCurrencyChange}
 					value={sourceCurrency}
-					name="ihave"
 					className="currency__control"
 				>
 					{Object.keys(currencies).map((currency) => (
@@ -78,7 +77,6 @@ const Form = () => {
 				<select
 					onChange={onTargetCurrencyChange}
 					value={targetCurrency}
-					name="iWillGet"
 					className="currency__control"
 				>
 					{Object.keys(currencies).map((currency) => (
