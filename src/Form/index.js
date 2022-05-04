@@ -15,10 +15,10 @@ const Form = () => {
 
 	const getTargetValue = () => {
 		if (sourceCurrency === "PLN") {
-			return (+currentValue / currencies[targetCurrency].buy).toFixed(2);
+			return +currentValue / currencies[targetCurrency].buy;
 		}
 
-		return (+currentValue * currencies[sourceCurrency].sell).toFixed(2);
+		return +currentValue * currencies[sourceCurrency].sell;
 	};
 
 	return (
@@ -57,7 +57,7 @@ const Form = () => {
 					Otrzymam
 				</label>
 				<input
-					value={getTargetValue()}
+					value={getTargetValue().toFixed(2)}
 					id="iWillGet"
 					type="text"
 					className="currency__control"
