@@ -11,7 +11,7 @@ const Footer = () => (
 		<p>
 			Photo by{" "}
 			<a href="https://unsplash.com/@micheile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
-				Visual Stories || Micheile
+				Visual Stories - Micheile
 			</a>{" "}
 			on{" "}
 			<a href="https://unsplash.com/s/photos/money?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
