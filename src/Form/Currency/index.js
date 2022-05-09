@@ -7,6 +7,7 @@ const Currency = ({
 	readOnly,
 	value,
 	onChangeValue,
+	keyPress,
 	onSelectChange,
 	selectValue,
 }) => {
@@ -18,6 +19,7 @@ const Currency = ({
 			<input
 				value={value}
 				onChange={onChangeValue}
+				onKeyPress={keyPress}
 				id={label}
 				type="number"
 				min="1"

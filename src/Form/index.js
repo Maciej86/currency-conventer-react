@@ -9,6 +9,12 @@ const Form = () => {
 
 	const onCurrentValue = ({ target }) => setCurrentValue(target.value);
 
+	const keyPress = (event) => {
+		if (!/[\d.]/.test(event.key)) {
+			event.preventDefault();
+		}
+	};
+
 	const onSourceCurrencyChange = ({ target }) => {
 		setSourceCurrency(target.value);
 		target.value !== "PLN"
@@ -40,6 +46,7 @@ const Form = () => {
 				readOnly={false}
 				value={currentValue}
 				onChangeValue={onCurrentValue}
+				keyPress={keyPress}
 				onSelectChange={onSourceCurrencyChange}
 				selectValue={sourceCurrency}
 			/>
