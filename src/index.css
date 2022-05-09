@@ -49,3 +49,9 @@ select {
 		width: 70%;
 	}
 }
+
+@media (max-width: 900px) {
+	.rootApp {
+		width: 90%;
+	}
+}
