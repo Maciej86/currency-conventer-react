@@ -1,4 +1,4 @@
-import { currencies } from "../Form/currencies";
+import { currencies } from "../currencies";
 import "./style.css";
 
 const Currency = ({
