@@ -2,7 +2,20 @@ import { useState, useEffect } from "react";
 import "./style.css";
 
 const Clock = () => {
-	const [currentDayAndTime, setCurrentDayAndTime] = useState(new Date());
+	const [currentDate, setCurrentDayAndTime] = useState(new Date());
+
+	const formatDate = (currentDate) => {
+		return (
+			<time>
+				{currentDate.toLocaleDateString(undefined, {
+					weekday: "long",
+					day: "numeric",
+					month: "long",
+				})}
+				, {currentDate.toLocaleTimeString()}
+			</time>
+		);
+	};
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
@@ -14,19 +27,7 @@ const Clock = () => {
 		};
 	}, []);
 
-	return (
-		<p className="clock">
-			<time>
-				Dzisiaj jest{" "}
-				{currentDayAndTime.toLocaleDateString(undefined, {
-					weekday: "long",
-					day: "numeric",
-					month: "long",
-				})}
-				, {currentDayAndTime.toLocaleTimeString()}
-			</time>
-		</p>
-	);
+	return <p className="clock">Dzisiaj jest {formatDate(currentDate)}</p>;
 };
 
 export default Clock;
