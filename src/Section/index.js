@@ -1,13 +1,13 @@
+import { StyledSection } from "./styled";
 import Form from "./Form";
 import Header from "./Header";
-import "./style.css";
 
 const Section = () => {
 	return (
-		<section className="conventer">
+		<StyledSection>
 			<Header />
 			<Form />
-		</section>
+		</StyledSection>
 	);
 };
 

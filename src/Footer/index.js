@@ -1,12 +1,10 @@
-import "./style.css";
+import { StyledFooter, StyledFooterLink } from "./styled";
 
 const Footer = () => (
-	<footer className="footer">
+	<StyledFooter>
 		<p>
 			Wykonanie w ramach nauki programowania{" "}
-			<a href="https://youcode.pl" className="footer__ink">
-				YouCode
-			</a>
+			<StyledFooterLink href="https://youcode.pl">YouCode</StyledFooterLink>
 		</p>
 		<p>
 			Photo by{" "}
@@ -18,7 +16,7 @@ const Footer = () => (
 				Unsplash
 			</a>
 		</p>
-	</footer>
+	</StyledFooter>
 );
 
 export default Footer;
