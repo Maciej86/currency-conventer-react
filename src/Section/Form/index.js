@@ -43,6 +43,7 @@ const Form = () => {
       <Currency
         label="Mam"
         placeholder="Wpisz kwotę"
+        focusInput={true}
         readOnly={false}
         value={currentValue}
         onChangeValue={onCurrentValue}

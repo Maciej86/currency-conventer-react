@@ -1,9 +1,11 @@
 import { WrapperCurrency, Label, ControlForm } from "./styled";
 import { currencies } from "../currencies";
+import { useEffect, useRef } from "react";
 
 const Currency = ({
   label,
   placeholder,
+  focusInput,
   readOnly,
   value,
   onChangeValue,
@@ -11,6 +13,13 @@ const Currency = ({
   onSelectChange,
   selectValue,
 }) => {
+  const inputFocus = useRef(null);
+  useEffect(() => {
+    if (focusInput) {
+      inputFocus.current.focus();
+    }
+  }, [focusInput]);
+
   return (
     <WrapperCurrency>
       <Label htmlFor={label}>{label}</Label>
@@ -19,6 +28,7 @@ const Currency = ({
         onChange={onChangeValue}
         onKeyPress={keyPress}
         id={label}
+        ref={inputFocus}
         type="number"
         min="1"
         max="10000000"
