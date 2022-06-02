@@ -1,6 +1,6 @@
 import { WrapperCurrency, Label, ControlForm } from "./styled";
 import { currencies } from "../currencies";
-import { useEffect, useRef } from "react";
+import { useInputFocus } from "./useInputFocus";
 
 const Currency = ({
   label,
@@ -13,12 +13,7 @@ const Currency = ({
   onSelectChange,
   selectValue,
 }) => {
-  const inputFocus = useRef(null);
-  useEffect(() => {
-    if (focusInput) {
-      inputFocus.current.focus();
-    }
-  }, [focusInput]);
+  const { inputFocus } = useInputFocus(focusInput);
 
   return (
     <WrapperCurrency>
