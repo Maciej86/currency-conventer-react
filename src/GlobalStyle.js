@@ -1,3 +1,7 @@
+import { createGlobalStyle } from "styled-components";
+import background from "./background.webp";
+
+export const GlobalStyle = createGlobalStyle`
 html {
   height: 100%;
   box-sizing: border-box;
@@ -22,7 +26,7 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../public/background.webp") center no-repeat;
+  background: url("${background}") center no-repeat;
   background-size: cover;
   font-family: "IBM Plex Sans Condensed", sans-serif;
   font-size: 18px;
@@ -55,3 +59,5 @@ select {
     width: 90%;
   }
 }
+
+`;
