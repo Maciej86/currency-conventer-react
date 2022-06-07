@@ -1,5 +1,5 @@
 import { WrapperCurrency, Label, ControlForm } from "./styled";
-import { currencies } from "../currencies";
+import { useDataApi } from "../useDataAPI";
 import { useInputFocus } from "./useInputFocus";
 
 const Currency = ({
@@ -14,6 +14,7 @@ const Currency = ({
   selectValue,
 }) => {
   const { inputFocus } = useInputFocus(focusInput);
+  const { messageApi, currencies } = useDataApi();
 
   return (
     <WrapperCurrency>
