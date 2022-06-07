@@ -36,8 +36,6 @@ export const useCurrency = () => {
         ? currencies[targetCurrency].sum
         : 1 / currencies[sourceCurrency].sum;
 
-    console.log(rate);
-
     return +currentValue * rate;
   };
 
