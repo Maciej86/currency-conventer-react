@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { currenciesData } from "./Currency/currenciesData";
+import { currenciesData } from "./currenciesData";
 
 export const useDataApi = () => {
-  const [currencyApi, setCurrencyApi] = useState();
+  const [currencies, setCurrencies] = useState();
   const [messageApi, setMessageApi] = useState("loading");
 
   useEffect(() => {
@@ -12,7 +12,8 @@ export const useDataApi = () => {
         const response = await axios.get(
           "https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,CHF"
         );
-        setCurrencyApi(response.data.rates);
+        const { currencies } = currenciesData(response.data.rates);
+        setCurrencies(currencies);
         setMessageApi("ok");
       } catch {
         setMessageApi("error");
@@ -21,8 +22,6 @@ export const useDataApi = () => {
 
     setTimeout(asyncApi, 2000);
   }, []);
-
-  const { currencies } = currenciesData(currencyApi);
 
   return {
     messageApi,

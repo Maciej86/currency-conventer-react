@@ -6,17 +6,17 @@ export const currenciesData = (dataApi) => {
 
     EUR: {
       label: "EUR euro",
-      sum: dataApi?.EUR,
+      sum: dataApi.EUR,
     },
 
     CHF: {
       label: "CHF frank szwajcarski",
-      sum: dataApi?.CHF,
+      sum: dataApi.CHF,
     },
 
     USD: {
       label: "USD dolar amerykański",
-      sum: dataApi?.USD,
+      sum: dataApi.USD,
     },
   };
 
