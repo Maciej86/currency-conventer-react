@@ -1,7 +1,7 @@
 import { useCurrency } from "./useCurrency";
 import Currency from "./Currency";
 
-const Form = () => {
+const Form = ({ dataApi }) => {
   const {
     currentValue,
     sourceCurrency,
@@ -11,7 +11,7 @@ const Form = () => {
     onSourceCurrencyChange,
     onTargetCurrencyChange,
     getTargetValue,
-  } = useCurrency();
+  } = useCurrency(dataApi);
 
   return (
     <form>
@@ -25,6 +25,7 @@ const Form = () => {
         keyPress={keyPress}
         onSelectChange={onSourceCurrencyChange}
         selectValue={sourceCurrency}
+        currencies={dataApi}
       />
       <Currency
         label="Otrzymam"
@@ -32,6 +33,7 @@ const Form = () => {
         value={getTargetValue().toFixed(2)}
         onSelectChange={onTargetCurrencyChange}
         selectValue={targetCurrency}
+        currencies={dataApi}
       />
     </form>
   );

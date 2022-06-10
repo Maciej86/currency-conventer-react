@@ -1,4 +1,3 @@
-import { useDataApi } from "../../useDataAPI";
 import { WrapperCurrency, Label, ControlForm } from "./styled";
 import { useInputFocus } from "./useInputFocus";
 
@@ -12,9 +11,9 @@ const Currency = ({
   keyPress,
   onSelectChange,
   selectValue,
+  currencies,
 }) => {
   const { inputFocus } = useInputFocus(focusInput);
-  const { currencies } = useDataApi();
 
   return (
     <WrapperCurrency>
@@ -39,11 +38,11 @@ const Currency = ({
         value={selectValue}
         className="currency__control"
       >
-        {/* {Object.keys(currencies).map((currency) => (
+        {Object.keys(currencies).map((currency) => (
           <option key={currency} value={currency}>
             {currencies[currency].label}
           </option>
-        ))} */}
+        ))}
       </ControlForm>
     </WrapperCurrency>
   );

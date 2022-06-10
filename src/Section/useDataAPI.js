@@ -20,7 +20,7 @@ export const useDataApi = () => {
       }
     };
 
-    setTimeout(asyncApi, 2000);
+    setTimeout(asyncApi, 3000);
   }, []);
 
   return {
