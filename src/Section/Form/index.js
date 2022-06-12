@@ -17,10 +17,10 @@ const Form = ({ dataApi, dateApi }) => {
   return (
     <form>
       <Info
-        currentDateApi={dateApi}
+        ratesDate={dateApi}
         currencyDataApi={dataApi}
-        sourceCurrency={sourceCurrency}
-        targetCurrency={targetCurrency}
+        sourceSymbolCurrency={sourceCurrency}
+        targetSymbolCurrency={targetCurrency}
       />
       <Currency
         label="Mam"

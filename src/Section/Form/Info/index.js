@@ -1,21 +1,23 @@
 const Info = ({
-  currentDateApi,
+  ratesDate,
   currencyDataApi,
-  sourceCurrency,
-  targetCurrency,
+  sourceSymbolCurrency,
+  targetSymbolCurrency,
 }) => {
   const rateCurrency = () =>
-    sourceCurrency === "PLN"
-      ? 1 / currencyDataApi[targetCurrency].sum
-      : currencyDataApi[sourceCurrency].sum;
+    sourceSymbolCurrency === "PLN"
+      ? 1 / currencyDataApi[targetSymbolCurrency].sum
+      : currencyDataApi[sourceSymbolCurrency].sum;
 
   const symbolCurrency = () =>
-    sourceCurrency === "PLN" ? targetCurrency : sourceCurrency;
+    sourceSymbolCurrency === "PLN"
+      ? targetSymbolCurrency
+      : sourceSymbolCurrency;
 
   return (
     <>
       <p>
-        Aktualny na dzień <b>{currentDateApi}</b>
+        Aktualny na dzień <b>{ratesDate}</b>
       </p>
       <p>
         Bieżący kurs{" "}
