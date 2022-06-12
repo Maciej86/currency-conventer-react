@@ -15,7 +15,7 @@ const Info = ({
   return (
     <>
       <p>
-        Aktualn na dzień <b>{currentDateApi}</b>
+        Aktualny na dzień <b>{currentDateApi}</b>
       </p>
       <p>
         Bieżący kurs{" "}
