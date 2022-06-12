@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useCurrency = (currencies) => {
+export const useCurrency = (dataApi) => {
   const [currentValue, setCurrentValue] = useState("");
   const [sourceCurrency, setSourceCurrency] = useState("PLN");
   const [targetCurrency, setTargetCurrency] = useState("EUR");
@@ -30,8 +30,8 @@ export const useCurrency = (currencies) => {
   const getTargetValue = () => {
     const rate =
       sourceCurrency === "PLN"
-        ? currencies[targetCurrency].sum
-        : 1 / currencies[sourceCurrency].sum;
+        ? dataApi[targetCurrency].sum
+        : 1 / dataApi[sourceCurrency].sum;
     return +currentValue * rate;
   };
 
