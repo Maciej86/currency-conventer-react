@@ -4,6 +4,7 @@ import { currenciesData } from "./currenciesData";
 
 export const useDataApi = () => {
   const [currencies, setCurrencies] = useState();
+  const [dateApi, setDateApi] = useState();
   const [messageApi, setMessageApi] = useState("loading");
 
   useEffect(() => {
@@ -13,6 +14,7 @@ export const useDataApi = () => {
           "https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,CHF"
         );
         const { currencies } = currenciesData(response.data.rates);
+        setDateApi(response.data.date);
         setCurrencies(currencies);
         setMessageApi("ok");
       } catch {
@@ -24,7 +26,8 @@ export const useDataApi = () => {
   }, []);
 
   return {
-    messageApi,
     currencies,
+    dateApi,
+    messageApi,
   };
 };

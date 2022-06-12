@@ -1,7 +1,8 @@
 import { useCurrency } from "./useCurrency";
 import Currency from "./Currency";
+import Info from "./Info";
 
-const Form = ({ dataApi }) => {
+const Form = ({ dataApi, dateApi }) => {
   const {
     currentValue,
     sourceCurrency,
@@ -15,6 +16,12 @@ const Form = ({ dataApi }) => {
 
   return (
     <form>
+      <Info
+        currentDateApi={dateApi}
+        currencyDataApi={dataApi}
+        sourceCurrency={sourceCurrency}
+        targetCurrency={targetCurrency}
+      />
       <Currency
         label="Mam"
         placeholder="Wpisz kwotę"

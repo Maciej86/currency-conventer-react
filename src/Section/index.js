@@ -4,7 +4,7 @@ import Form from "./Form";
 import Header from "./Header";
 
 const Section = () => {
-  const { messageApi, currencies } = useDataApi();
+  const { currencies, dateApi, messageApi } = useDataApi();
   let content = "";
 
   // Obsługa ładowania oraz błędu będzie
@@ -15,7 +15,7 @@ const Section = () => {
       content = <p>Pobieram dane...</p>;
       break;
     case "ok":
-      content = <Form dataApi={currencies} />;
+      content = <Form dataApi={currencies} dateApi={dateApi} />;
       break;
   }
 
