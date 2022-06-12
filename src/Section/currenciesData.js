@@ -18,6 +18,11 @@ export const currenciesData = (dataApi) => {
       label: "USD dolar amerykański",
       sum: dataApi.USD,
     },
+
+    GBP: {
+      label: "GBP funt brytyjski",
+      sum: dataApi.GBP,
+    },
   };
 
   return { currencies };

@@ -11,7 +11,7 @@ export const useDataApi = () => {
     const asyncApi = async () => {
       try {
         const response = await axios.get(
-          "https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,CHF"
+          "https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,CHF,GBP"
         );
         const { currencies } = currenciesData(response.data.rates);
         setDateApi(response.data.date);
