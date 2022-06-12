@@ -6,13 +6,14 @@ const Info = ({
 }) => {
   const rateCurrency = () =>
     sourceSymbolCurrency === "PLN"
-      ? 1 / currencyDataApi[targetSymbolCurrency].sum
-      : currencyDataApi[sourceSymbolCurrency].sum;
+      ? currencyDataApi[targetSymbolCurrency].sum
+      : 1 / currencyDataApi[sourceSymbolCurrency].sum;
 
-  const symbolCurrency = () =>
-    sourceSymbolCurrency === "PLN"
-      ? targetSymbolCurrency
-      : sourceSymbolCurrency;
+  const symbolTargetCurrency = () =>
+    sourceSymbolCurrency === "PLN" ? targetSymbolCurrency : "PLN";
+
+  const symbolSourceCurrency = () =>
+    sourceSymbolCurrency !== "PLN" ? sourceSymbolCurrency : "PLN";
 
   return (
     <>
@@ -22,7 +23,8 @@ const Info = ({
       <p>
         Bieżący kurs{" "}
         <b>
-          {rateCurrency().toFixed(2)} {symbolCurrency()}
+          1 {symbolTargetCurrency()} = {rateCurrency().toFixed(2)}{" "}
+          {symbolSourceCurrency()}
         </b>
       </p>
     </>
