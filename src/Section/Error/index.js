@@ -1,16 +1,15 @@
 import iconError from "./icon-error.webp";
+import { Heading, MessageError } from "./styled";
 
-const Error = () => {
-  return (
-    <>
-      <h3>Ładowanie nie powiodło się.</h3>
-      <img src={iconError} width="50" height="50" alt="błąd" />
-      <p>
-        Wystąpił błąd podczas pobierania aktualnych kursów walut. Proszę odśwież
-        stronę lub spróbuj ponownie za chwilę.
-      </p>
-    </>
-  );
-};
+const Error = () => (
+  <>
+    <Heading>Ładowanie nie powiodło się.</Heading>
+    <img src={iconError} width="50" height="50" alt="błąd" />
+    <MessageError>
+      Wystąpił błąd podczas pobierania aktualnych kursów walut. Proszę{" "}
+      <b>odśwież stronę lub spróbuj ponownie</b> za chwilę.
+    </MessageError>
+  </>
+);
 
 export default Error;
