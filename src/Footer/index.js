@@ -8,13 +8,13 @@ const Footer = () => (
     </p>
     <p>
       Photo by{" "}
-      <a href="https://unsplash.com/@micheile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+      <Link href="https://unsplash.com/@micheile?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
         Visual Stories || Micheile
-      </a>{" "}
+      </Link>{" "}
       on{" "}
-      <a href="https://unsplash.com/s/photos/money?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
+      <Link href="https://unsplash.com/s/photos/money?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">
         Unsplash
-      </a>
+      </Link>
     </p>
   </StyledFooter>
 );

@@ -10,7 +10,7 @@ export const StyledFooter = styled.footer`
 `;
 
 export const Link = styled.a`
-  color: rgb(100, 100, 100);
+  color: rgb(43, 179, 207);
   &:hover {
     color: rgb(69, 69, 69);
   }
