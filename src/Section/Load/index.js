@@ -1,4 +1,4 @@
-import loadSpiner from "./load-spiner.webp";
+import loadSpiner from "./icon-load.webp";
 
 const Load = () => {
   return (
