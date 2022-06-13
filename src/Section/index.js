@@ -1,5 +1,6 @@
 import { useDataApi } from "./useDataAPI";
 import { StyledSection } from "./styled";
+import Load from "./Load";
 import Form from "./Form";
 import Header from "./Header";
 
@@ -12,7 +13,7 @@ const Section = () => {
   // na razie trochę na skróty.
   switch (messageApi) {
     case "loading":
-      content = <p>Pobieram dane...</p>;
+      content = <Load />;
       break;
     case "ok":
       content = <Form dataApi={currencies} dateApi={dateApi} />;
