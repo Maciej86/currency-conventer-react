@@ -5,10 +5,10 @@ import { currenciesData } from "./currenciesData";
 export const useDataApi = () => {
   const [currencies, setCurrencies] = useState();
   const [dateApi, setDateApi] = useState();
-  const [messageApi, setMessageApi] = useState("loading");
+  const [apiState, setApiState] = useState("loading");
 
   useEffect(() => {
-    const asyncApi = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(
           "https://api.exchangerate.host/latest?base=PLN&symbols=EUR,USD,CHF,GBP"
@@ -16,18 +16,18 @@ export const useDataApi = () => {
         const { currencies } = currenciesData(response.data.rates);
         setDateApi(response.data.date);
         setCurrencies(currencies);
-        setMessageApi("ok");
+        setApiState("ok");
       } catch {
-        setMessageApi("error");
+        setApiState("error");
       }
     };
 
-    setTimeout(asyncApi, 3500);
+    setTimeout(fetchData, 3500);
   }, []);
 
   return {
     currencies,
     dateApi,
-    messageApi,
+    messageApi: apiState,
   };
 };
