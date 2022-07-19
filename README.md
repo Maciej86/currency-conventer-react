@@ -2,7 +2,7 @@
 
 The application in real time converts the exchange rate from PLN to the selected currency and vice versa. Have fun using the app.
 
-![The appearance of the application](https://github.com/Maciej86/currency-conventer-react/blob/main/public/aplikacja.webp)
+![The appearance of the application](https://github.com/Maciej86/currency-conventer-react/blob/main/public/og-image.webp)
 
 ## Demo
 
