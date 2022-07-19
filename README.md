@@ -8,6 +8,15 @@ The application in real time converts the exchange rate from PLN to the selected
 
 https://maciej86.github.io/currency-conventer-react/
 
+## Used Technologies
+
+- React 18.0.0
+- React Styled Components 5.3.5
+- API https://exchangerate.host/
+- Axios
+- JavaScript - ECMAScript 6
+- HTML / CSS
+
 ## Technologies used
 
 An app built with:
